@@ -1,24 +1,24 @@
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 
-import { AppComponent } from './app.component';
+import { LoginComponent } from './login.component';
 
-describe('AppComponent', () => {
+describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        ReactiveFormsModule,
         ClarityModule
       ],
       declarations: [
-        AppComponent
+        LoginComponent
       ],
     }).compileComponents();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(LoginComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });

@@ -1,0 +1,19 @@
+<div class="login-wrapper">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <section class="title">
+      <label>Welcome to Beer Rank</label>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <input type="text" clrInput placeholder="Username" formControlName="username" required />
+      </clr-input-container>
+      <clr-password-container>
+        <input type="password" clrPassword placeholder="Password" formControlName="password" required />
+      </clr-password-container>
+      <div class="error active" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+    </div>
+  </form>
+</div>
