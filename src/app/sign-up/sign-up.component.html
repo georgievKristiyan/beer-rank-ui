@@ -1,7 +1,7 @@
 <div class="login-wrapper">
-  <form class="login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <form class="login" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
     <section class="title">
-      <label>Welcome to Beer Rank</label>
+      <label>Sign Up to Beer Rank</label>
     </section>
     <div class="login-group">
       <clr-input-container>
@@ -10,11 +10,13 @@
       <clr-password-container>
         <input type="password" clrPassword placeholder="Password" formControlName="password" required />
       </clr-password-container>
+      <clr-password-container>
+        <input type="password" clrPassword placeholder="Confirm Password" formControlName="confirmPassword" />
+      </clr-password-container>
       <div class="error active" *ngIf="errorMessage">
         {{ errorMessage }}
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
-      <a href="/sign-up" class="signup">Sign up for a Beer Rank</a>
+      <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Sign Up</button>
     </div>
   </form>
 </div>
