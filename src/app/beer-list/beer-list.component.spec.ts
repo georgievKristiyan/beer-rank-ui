@@ -1,11 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ClarityModule } from '@clr/angular';
 
 import { BeerListComponent } from './beer-list.component';
 
 describe('BeerListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [],
+      imports: [
+        ClarityModule
+      ],
       declarations: [
         BeerListComponent
       ],

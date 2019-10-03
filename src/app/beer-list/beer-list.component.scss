@@ -1,0 +1,15 @@
+.beer-rank-image {
+  max-height: 2.5rem!important;
+  max-width: 800px!important;
+  margin-right: .375rem!important;
+}
+
+:root .header, .header.header-1, header, header.header-1 {
+  background-color: #f5b317;
+}
+
+:root .header .branding .title, header .branding .title,
+.header .header-actions>.dropdown>.dropdown-toggle, .header .settings>.dropdown>.dropdown-toggle,
+header .header-actions>.dropdown>.dropdown-toggle, header .settings>.dropdown>.dropdown-toggle {
+  color: #080808;
+}
