@@ -10,6 +10,8 @@
 
 :root .header .branding .title, header .branding .title,
 .header .header-actions>.dropdown>.dropdown-toggle, .header .settings>.dropdown>.dropdown-toggle,
-header .header-actions>.dropdown>.dropdown-toggle, header .settings>.dropdown>.dropdown-toggle {
+header .header-actions>.dropdown>.dropdown-toggle, header .settings>.dropdown>.dropdown-toggle,
+.header .header-actions .nav-link, .header .header-nav .nav-link, .header .settings .nav-link,
+header .header-actions .nav-link, header .header-nav .nav-link, header .settings .nav-link {
   color: #080808;
 }
