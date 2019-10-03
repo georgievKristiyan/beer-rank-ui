@@ -6,9 +6,11 @@
     <div class="login-group">
       <clr-input-container>
         <input type="text" clrInput placeholder="Username" formControlName="username" required />
+        <clr-control-error>This field is required!</clr-control-error>
       </clr-input-container>
       <clr-password-container>
         <input type="password" clrPassword placeholder="Password" formControlName="password" required />
+        <clr-control-error>This field is required!</clr-control-error>
       </clr-password-container>
       <div class="error active" *ngIf="errorMessage">
         {{ errorMessage }}
