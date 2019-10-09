@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { LOGIN_PATH, SIGN_UP_PATH } from './common/const';
+import { LOGIN_ROUTE, SIGN_UP_ROUTE } from './common/const';
 
 const routes: Routes = [
   {
@@ -13,11 +13,11 @@ const routes: Routes = [
     component: BeerListComponent
   },
   {
-    path: LOGIN_PATH,
+    path: LOGIN_ROUTE,
     component: LoginComponent
   },
   {
-    path: SIGN_UP_PATH,
+    path: SIGN_UP_ROUTE,
     component: SignUpComponent
   }
 ];

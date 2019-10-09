@@ -7,18 +7,18 @@
       </a>
     </div>
     <div class="header-actions">
-      <a href="/login" class="nav-link nav-text">
+      <a href="/login" class="nav-link nav-text" *ngIf='!username'>
         Log In
       </a>
-      <!-- <clr-dropdown>
+      <clr-dropdown *ngIf='username'>
         <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
-          john.doe@vmware.com
+          {{ username }}
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a href="..." clrDropdownItem>Log out</a>
+          <a href="javascript:void(0);" (click)="logout()" clrDropdownItem>Log out</a>
         </clr-dropdown-menu>
-      </clr-dropdown> -->
+      </clr-dropdown>
     </div>
   </header>
   <div class="content-container">

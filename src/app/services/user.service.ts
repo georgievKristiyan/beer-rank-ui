@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { User } from '../models/user';
 import { Token } from '../models/token';
+import { CREATE_PATH, LOGIN_PATH } from '../common/const';
 
 
 @Injectable()
@@ -12,9 +13,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   public login(user: User): Observable<Token> {
-    const token = new Token();
-    token.accessToken = window.btoa(`${user.username}:${user.password}`);
-    return throwError(token);
+    return this.httpClient.post<Token>(`http://localhost:8080${LOGIN_PATH}`, user);
   }
 
   public logout(): void {
@@ -22,8 +21,6 @@ export class UserService {
   }
 
   public register(user: User): Observable<Token> {
-    const token = new Token();
-    token.accessToken = window.btoa(`${user.username}:${user.password}`);
-    return of(token);
+    return this.httpClient.post<Token>(`http://localhost:8080${CREATE_PATH}`, user );
   }
 }
