@@ -3,11 +3,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ClarityModule } from '@clr/angular';
 
-import { BeerListComponent } from './beer-list.component';
+import { BeerDetailComponent } from './beer-detail.component';
 import { BeerService } from '../services/beer.service';
 import { UserService } from '../services/user.service';
 
-describe('BeerListComponent', () => {
+describe('BeerDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -16,7 +16,7 @@ describe('BeerListComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        BeerListComponent
+        BeerDetailComponent
       ],
       providers: [
         UserService,
@@ -26,7 +26,7 @@ describe('BeerListComponent', () => {
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(BeerListComponent);
+    const fixture = TestBed.createComponent(BeerDetailComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
