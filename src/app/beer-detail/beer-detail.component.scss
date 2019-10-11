@@ -15,3 +15,63 @@ header .header-actions>.dropdown>.dropdown-toggle, header .settings>.dropdown>.d
 header .header-actions .nav-link, header .header-nav .nav-link, header .settings .nav-link {
   color: #080808;
 }
+
+.beer-rank {
+  color: #f5b317;
+  font-style: italic;
+}
+
+*, ::after, ::before {
+  box-sizing: initial;
+}
+
+p.speech {
+  margin-top: 2rem;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-color: #fff;
+  border: 8px solid #f5b317;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #888;
+  -moz-box-shadow: 2px 2px 4px #888;
+  box-shadow: 2px 2px 4px #888;
+}
+
+p.speech:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  top: 100px;
+  border: 25px solid;
+  border-color: #f5b317 transparent transparent #f5b317;
+}
+
+p.speech:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  top: 100px;
+  border: 15px solid;
+  border-color: #fff transparent transparent #fff;
+}
+
+.clr-input {
+  width: 250px;
+}
+
+.beer-img {
+  margin-top: 50px;
+  img {
+    width: auto;
+    max-height: 500px;
+  }
+}

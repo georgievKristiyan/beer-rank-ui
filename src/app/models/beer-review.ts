@@ -4,4 +4,6 @@ export class BeerReview {
   comment?: string;
 
   username: string;
+
+  beerId: number;
 }

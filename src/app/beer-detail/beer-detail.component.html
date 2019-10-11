@@ -23,7 +23,29 @@
   </header>
   <div class="content-container">
     <div class="content-area">
-      <h1>Beer Detail</h1>
+      <div class="clr-row">
+        <div class="clr-col-6 clr-offset-2">
+          <div class="clr-row">
+            <h1 class="clr-col-6">{{ beer.title }}</h1>
+            <h1 class="clr-col-2 beer-rank">{{ beer.rank }}</h1>
+          </div>
+          <div *ngIf="username" class="clr-row clr-col-9 clr-align-items-end clr-justify-content-around">
+            <div>
+              <clr-icon shape="star" size="36" *ngFor="let item of [].constructor(5); index as i"
+                (click)="setRank(i + 1)" [ngClass]="{'is-solid': newRank>=i + 1}"></clr-icon>
+            </div>
+            <input clrInput placeholder="Add comment if you like!" name="newComment" [(ngModel)]="newComment" />
+            <button class="btn btn-sm" (click)="submitReview()">Submit</button>
+          </div>
+          <div class="clr-row beer-img">
+            <img [src]="beer.imageLink">
+          </div>
+        </div>
+        <div class="clr-col-3">
+          <p class="speech" *ngFor="let review of currentReviews">{{ review.comment }}</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

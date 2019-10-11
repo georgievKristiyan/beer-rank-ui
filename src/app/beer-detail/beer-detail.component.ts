@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { BeerDetail } from '../models/beer-detail';
 import { UserService } from '../services/user.service';
 import { BeerService } from '../services/beer.service';
+import { Beer } from '../models/beer';
+import { BeerReview } from '../models/beer-review';
 
 @Component({
   selector: 'app-beer-detail',
@@ -12,7 +13,10 @@ import { BeerService } from '../services/beer.service';
 })
 export class BeerDetailComponent implements OnInit {
   username: string = null;
-  beerDetail: BeerDetail;
+  beer: Beer;
+  newRank = 0;
+  newComment: string = null;
+  currentReviews: BeerReview[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,14 +26,39 @@ export class BeerDetailComponent implements OnInit {
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
     const id = +this.route.snapshot.paramMap.get('id');
-    this.beerService.getBeerDetail(id).subscribe(detail => {
-      console.log(detail);
-      this.beerDetail = detail;
+    this.beerService.getBeer(id).subscribe(beer => {
+      this.beer = beer;
+      this.currentReviews = beer.reviews.filter(r => r.comment != null);
     });
   }
 
   public logout(): void {
     this.userService.logout();
     this.username = null;
+  }
+
+  public setRank(rank: number): void {
+    this.newRank = rank;
+  }
+
+  public submitReview() {
+    if (!this.username) {
+      return;
+    }
+
+    const review = new BeerReview();
+    review.beerId = this.beer.id;
+    review.comment = this.newComment;
+    review.rank = this.newRank;
+    review.username = this.username;
+
+    this.beerService.addReview(review).subscribe(r => {
+      this.newRank = 0;
+      this.newComment = null;
+
+      if (r.comment != null) {
+        this.currentReviews.push(r);
+      }
+    });
   }
 }

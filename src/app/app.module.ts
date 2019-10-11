@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { BeerService } from './services/beer.service';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     ClarityModule
   ],
