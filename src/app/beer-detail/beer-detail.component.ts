@@ -47,12 +47,11 @@ export class BeerDetailComponent implements OnInit {
     }
 
     const review = new BeerReview();
-    review.beerId = this.beer.id;
     review.comment = this.newComment;
     review.rank = this.newRank;
     review.username = this.username;
 
-    this.beerService.addReview(review).subscribe(r => {
+    this.beerService.addReview(review, this.beer.id).subscribe(r => {
       this.newRank = 0;
       this.newComment = null;
 

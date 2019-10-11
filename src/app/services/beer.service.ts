@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import { Beer, beerMock } from '../models/beer';
+import { Beer } from '../models/beer';
 import { BeerReview } from '../models/beer-review';
+import { BEERS_PATH, REVIEWS_PATH } from '../common/const';
 
 @Injectable()
 export class BeerService {
@@ -11,14 +12,14 @@ export class BeerService {
   constructor(private httpClient: HttpClient) { }
 
   public getAll(): Observable<Beer[]> {
-    return of(beerMock);
+    return this.httpClient.get<Beer[]>(`http://localhost:8080${BEERS_PATH}`);
   }
 
   public getBeer(id: number): Observable<Beer> {
-    return of(beerMock[id - 1]);
+    return this.httpClient.get<Beer>(`http://localhost:8080${BEERS_PATH}/${id}`);
   }
 
-  public addReview(review: BeerReview): Observable<BeerReview> {
-    return of(review);
+  public addReview(review: BeerReview, beerId: number): Observable<BeerReview> {
+    return this.httpClient.post<BeerReview>(`http://localhost:8080${REVIEWS_PATH}/${beerId}`, review);
   }
 }
