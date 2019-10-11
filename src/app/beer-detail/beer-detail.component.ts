@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from '../services/user.service';
 import { BeerService } from '../services/beer.service';
@@ -19,6 +19,7 @@ export class BeerDetailComponent implements OnInit {
   currentReviews: BeerReview[];
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private beerService: BeerService) { }
@@ -52,12 +53,7 @@ export class BeerDetailComponent implements OnInit {
     review.username = this.username;
 
     this.beerService.addReview(review, this.beer.id).subscribe(r => {
-      this.newRank = 0;
-      this.newComment = null;
-
-      if (r.comment != null) {
-        this.currentReviews.push(r);
-      }
+      this.router.navigate(['/']);
     });
   }
 }
